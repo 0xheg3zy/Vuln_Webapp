@@ -1,0 +1,12 @@
+create table if not exists users (id integer,name varchar2(250), email varchar2(250), location varchar2(250));
+insert into users values (1,'Robert T. Sutherland','RobertTSutherland@dayrep.com','3007 Argonne Street Newark, DE 19711');
+insert into users values (2,'john doe','john.doe@hotmail.net','3new york');
+insert into users values (3,'Michael V. Garrett','MichaelVGarrett@jourrapide.com','1409 Lakeland Park Drive Norcross, GA 30071');
+insert into users values (4,'Dorothy J. McNeill','DorothyJMcNeill@jourrapide.com','1846 Buffalo Creek Road Goodlettsville, TN 37072');
+insert into users values (5,'cathy A. Goins','CathyAGoins@teleworm.us','287 Charles Street Ann Arbor, MI 48108');
+insert into users values (6,'Allen L. Armstrong','AllenLArmstrong@rhyta.com','622 New York Avenue Fort Worth, TX 76104');
+insert into users values (7,'Herman T. Berning','HermanTBerning@dayrep.com','3840 Mulberry Lane West Palm Beach, FL 33411');
+insert into users values (9,'Kevin L. Ball','KevinLBall@armyspy.com','3453 Marietta Street Fremont, CA 94539');
+insert into users values (10,'Shirley J. McFadden','ShirleyJMcFadden@jourrapide.com','2367 Carolina Avenue Dallas, TX 75252');
+insert into users values (11,'Susan K. Daniels','SusanKDaniels@jourrapide.com','4452 Goldcliff Circle Washington, DC 20005'); 
+insert into users values (12,'Heather L. Denny','HeatherLDenny@teleworm.us','1376 Rubaiyat Road Grand Rapids, MI 49508');
