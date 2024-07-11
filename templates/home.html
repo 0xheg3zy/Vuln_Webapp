@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            padding: 20px;
+        }
+        .upper_container, .middle_container, .down_container {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .fu_container, .su_container , .tu_container {
+            background-color: red;
+        }
+        .fm_container, .sm_container , .tm_container {
+            background-color: green;
+        }
+        .fd_container, .sd_container , .td_container {
+            background-color: #ffc107;
+        }
+        .upper_container div, .middle_container div, .down_container div {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            color: white;
+            border: 1px solid #ddd;
+            margin: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .upper_container div:hover, .middle_container div:hover, .down_container div:hover {
+            transform: scale(1.05);
+        }
+        .header, .content, .footer {
+            padding: 20px;
+            text-align: center;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Welcome to Vuln Webapp</h1>
+        <p>Practice to be secure</p>
+    </div>
+
+    <div class="container">
+        <div class="upper_container">
+            <div class="fu_container">
+                <p onclick="redirect('/idor');">IDOR</p>
+            </div>
+            <div class="su_container">
+                <p onclick="redirect('/sqli/get_user_info');">SQL INJECTION</p>
+            </div>
+            <div class="tu_container">
+                <p onclick="redirect('/xss/search');">CROSS SITE SCRIPTING</p>
+            </div>
+        </div>
+
+        <div class="middle_container">
+            <div class="fm_container">
+                <p onclick="redirect('/ssti/search');">SSTI</p>
+            </div>
+            <div class="sm_container">
+                <p onclick="redirect('/ssrf/fetch');">SSRF</p>
+            </div>
+            <div class="tm_container">
+                <p onclick="redirect('/rce/pingme');">REMOTE CODE EXCUTION</p>
+            </div>
+        </div>
+
+        <div class="down_container">
+            <div class="fd_container">
+                <p onclick="redirect('/lfi/index');">LFI</p>
+            </div>
+            <div class="sd_container">
+                <p onclick="redirect('/logic');">LOGIC BUGS</p>
+            </div>
+            <div class="td_container">
+                <p onclick="redirect('/weaksession/profile');">WEAK FLASK SESSION</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Vuln Webapp. All rights reserved.</p>
+    </div>
+    <script>
+        function redirect(f) {
+            window.location.href = f
+        }
+    </script>
+</body>
+</html>

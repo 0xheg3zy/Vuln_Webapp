@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='logic.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Confirm Purchase</h1>
+        <div class="item-details">
+            <h2>Item Details</h2>
+            <p>Name: Item 1</p>
+            <p>Description: This is the Item 1</p>
+            <p>Price: $10</p>
+            <p>Quantity: {{ quantity }}</p>
+            <p>Total Cost: ${{ total_cost }}</p>
+        </div>
+    </div>
+</body>
+</html>

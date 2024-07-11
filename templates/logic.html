@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Goods Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='logic.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Buy Goods Page</h1>
+        <div class="goods">
+            <h2>Available Goods</h2>
+            <form action="/logic/purchase" method="POST">
+                <ul>
+                    <li>
+                        Item 1 - $10.0
+                        <label for="quantity">Quantity:</label>
+                        <input type="text" id="quantity" name="quantity" required> <!-- a problem is here-->
+                        <input type="hidden" name="price" value="10"> <!-- a problem is here-->
+                        <button type="submit">Purchase</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

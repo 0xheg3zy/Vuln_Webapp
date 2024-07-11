@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLite Injection Vulnerability Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .user-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>A Simple Note : DBMS is SQLite3</h1>
+        <h1>SQL Injection Vulnerability Demo</h1>
+        <input type="text" id="name" placeholder="Enter User Name">
+        <button onclick="getUserInfo()">Get User Info</button>
+        <div class="user-info" id="user-info">
+        </div>
+    </div>
+    <script>
+        function getUserInfo() {
+            const name = document.getElementById('name').value;
+            fetch('/sqli/get_user_info', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const userInfoDiv = document.getElementById('user-info');
+                    if (data.error) {
+                        userInfoDiv.innerHTML = `<p style="color:red">${data.error}</p>`;
+                    } else {
+                        userInfoDiv.innerHTML = `<p>User ID: ${data.id}</p><p>Name: ${data.name}</p><p>Email: ${data.email}</p>`;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

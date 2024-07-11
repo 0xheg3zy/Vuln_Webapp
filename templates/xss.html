@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Search Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .search-bar {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+
+        #searchResults {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-item h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .result-item p {
+            margin: 5px 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Page</h1>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Enter your search name">
+            <button onclick="search()">Search</button>
+        </div>
+        <div id="searchResults">
+        
+        </div>
+    </div>
+
+    <script>
+        function search() {
+            var searchTerm = document.getElementById('searchInput').value.trim();
+
+            if (searchTerm === '') {
+                alert('Please enter a search term.');
+                return;
+            }
+
+            fetch('/xss/search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ searchTerm })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultsContainer = document.getElementById('searchResults');
+                resultsContainer.innerHTML = ''; // Clear previous results
+
+                if (data.error) {
+                    resultsContainer.innerHTML = `<p style="color:red">${data.error}</p>`;
+                } else {
+                    const userInfoHTML = `
+                        <div class="result-item">
+                            <h3>You Searched About :</h3>
+                            <p><strong>Name:</strong> ${data.name}</p>
+                        </div>
+                    `;
+                    resultsContainer.innerHTML = userInfoHTML; // problem is here => 
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

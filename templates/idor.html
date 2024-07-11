@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-info h2 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .bio {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>User Profile</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="profile">
+            <img src="{{url_for('static',filename='img/profile-pic.jpg')}}" alt="Profile Picture">
+            <div class="profile-info">
+                <h2>{{name}}</h2>
+                <p>id: {{ id }}</p>
+                <p>Email: {{email}}</p>
+                <p>Location: {{location}}</p>
+            </div>
+        </section>
+
+        <section class="bio">
+            <h2>Bio</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis libero non mi semper, ac vehicula nulla ultrices.</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Vuln Webapp. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+

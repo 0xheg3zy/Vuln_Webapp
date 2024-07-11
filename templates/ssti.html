@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Search Page</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='temp.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Searching Page</h1>
+        <form action="/ssti/search" method="GET">
+          <div class="search-bar">
+              <input type="text" id="searchInput" name="user" placeholder="Enter your search name">
+              <input type="submit" class="btn" value="Search">
+          </div>
+        </form>
+        <div id="searchResults">
+          {%if user%}
+          <div class="result-item">
+            <h3>You Searched About :</h3>
+            <p><strong>Name:</strong> {{ user }}</p>
+        </div>
+        {%endif%}
+        </div>
+    </div>
+</body>
+</html>
