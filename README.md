@@ -6,6 +6,7 @@
     pip3 install -r requirements.txt
     python app.py
 # Running Via docker:
+    cd Vuln_Webapp
     docker build -t vuln_app_image .
     docker run -d -p 80:80 --name vuln_app_container vuln_app_image
 # Demo For The Vulns , it's reason and the mitigation for it
