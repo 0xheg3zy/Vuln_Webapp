@@ -1,6 +1,13 @@
 # Vuln_Webapp
     This is a simple vuln web appliaction created with flask 
-
+# Installation:
+    git clone https://github.com/0xheg3zy/Vuln_Webapp
+    cd Vuln_Webapp
+    pip3 install -r requirements.txt
+    python app.py
+# Running Via docker:
+    docker build -t vuln_app_image .
+    docker run -d -p 80:80 --name vuln_app_container vuln_app_image
 # Demo For The Vulns , it's reason and the mitigation for it
 #    Idor:
 #    ![alt text](https://github.com/0xheg3zy/Vuln_Webapp/blob/main/vuln_reason/idor.png)
