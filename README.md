@@ -66,7 +66,7 @@
         1)check on the page name [white list] (pages you have on website)
         2)path traversal validation 
         In php:
-            1)avoid using include , include_once , require , require_once with value can be controlled by user
+            1)avoid using include , include_once , require , require_once and similar functions with value can be controlled by user
 
 
 #    Logic bugs:
